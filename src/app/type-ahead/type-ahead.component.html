@@ -1,0 +1,14 @@
+<div>
+    <form>
+        <mat-form-field style="margin-left: 20px; width: 300px;">
+            <mat-placeholder>Type some characters, future hero</mat-placeholder>
+            <input matInput [formControl]="searchBox" [matAutocomplete]="ac" id="searchBox" />
+
+            <mat-autocomplete #ac="matAutocomplete" (optionSelected)="itemSelected($event)">
+                <mat-option *ngFor="let option of searchResults; " [disabled]="option.disabled" [value]="option.id">
+                    {{ option.value }}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+</div>
